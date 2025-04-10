@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,43 +428,81 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/03/19 15:14:28.105</created_date>
+    <created_date>2025/04/10 11:49:59.911</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/03/19 15:14:28.105</modified_date>
+    <modified_date>2025/04/10 11:49:59.911</modified_date>
     <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>MySQL-DBLatihan</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>dblatihan</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>Data grid</from>
-      <to>String operations 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>String operations 2</from>
-      <to>Text file output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Generate rows</from>
-      <to>Generate random value</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Generate random value</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values</from>
-      <to>String operations</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>String operations</from>
-      <to>Text file output</to>
+      <to>Database lookup</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -480,7 +519,7 @@
     </partitioning>
     <fields>
       <field>
-        <name>Teks Acak</name>
+        <name>Nama</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -492,7 +531,7 @@
         <field_null_if/>
       </field>
       <field>
-        <name>Bilangan Acak</name>
+        <name>Seks</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -506,8 +545,24 @@
     </fields>
     <data>
       <line>
-        <item>Teks Acak</item>
-        <item/>
+        <item>Mawar</item>
+        <item>Wanita</item>
+      </line>
+      <line>
+        <item>Melati</item>
+        <item>Perempuan</item>
+      </line>
+      <line>
+        <item>Cakra</item>
+        <item>Pria</item>
+      </line>
+      <line>
+        <item>Genta</item>
+        <item>Lelaki</item>
+      </line>
+      <line>
+        <item>Prabu</item>
+        <item>Laki-Laki</item>
       </line>
     </data>
     <attributes/>
@@ -519,14 +574,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>192</yloc>
+      <xloc>464</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>String operations</name>
-    <type>StringOperations</type>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -535,284 +590,29 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>Teks Acak</in_stream_name>
-        <out_stream_name/>
-        <trim_type>none</trim_type>
-        <lower_upper/>
-        <padding_type>right</padding_type>
-        <pad_char/>
-        <pad_len>30</pad_len>
-        <init_cap>N</init_cap>
-        <mask_xml>None</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>720</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>String operations 2</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>Teks Acak</in_stream_name>
-        <out_stream_name/>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>right</padding_type>
-        <pad_char/>
-        <pad_len>30</pad_len>
-        <init_cap>N</init_cap>
-        <mask_xml>None</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>Bilangan Acak</in_stream_name>
-        <out_stream_name/>
-        <trim_type>none</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>right</padding_type>
-        <pad_char/>
-        <pad_len>20</pad_len>
-        <init_cap>N</init_cap>
-        <mask_xml>None</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>544</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Generate rows</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-    </fields>
-    <limit>5</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Generate random value</name>
-    <type>RandomValue</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Teks Acak</name>
-        <type>random string</type>
-      </field>
-      <field>
-        <name>Bilangan Acak</name>
-        <type>random integer</type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>Teks Acak</name>
-        <rename>Teks Acak</rename>
-        <type>None</type>
-        <length>0</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Bilangan Acak</name>
-        <rename>Bilangan Acak</rename>
-        <type>None</type>
-        <length>0</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>528</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Text file output</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding>windows-1252</encoding>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>C:\kuliah\Semester 4\Data Warehouse\Praktikum DWH\praktikum 3\Tulisan Acak</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery/>
-    </file>
-    <fields>
-      <field>
-        <name>Teks Acak</name>
+    <connection>MySQL-DBLatihan</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>dblatihan</schema>
+      <table>gender_keylookup</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>Seks</name>
+        <field>name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id</rename>
+        <default/>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>30</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Bilangan Acak</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>20</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -822,8 +622,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>240</yloc>
+      <xloc>688</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
